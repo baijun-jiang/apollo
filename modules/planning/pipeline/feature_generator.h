@@ -18,6 +18,7 @@
 #include <list>
 #include <string>
 #include <vector>
+#include <utility>
 #include <unordered_map>
 
 #include "cyber/common/file.h"
@@ -48,7 +49,9 @@ class FeatureGenerator {
   void OnTafficLightDetection(
       const apollo::perception::TrafficLightDetection& traffic_light_detection);
 
-  void GenerateTrajectoryPoints(
+  void GenerateObstacleData(LearningDataFrame* learning_data_frame);
+
+  void GenerateADCTrajectoryPoints(
       const std::list<apollo::localization::LocalizationEstimate>&
           localization_for_label,
       LearningDataFrame* learning_data_frame);
